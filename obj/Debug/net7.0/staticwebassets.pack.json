@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/BulkyBookVSC.bundle.scp.css"
     },
     {
+      "Id": "/Users/pro/code/CSharp/BulkyBookVSC/wwwroot/css/bootswatchTheme.css",
+      "PackagePath": "staticwebassets/css/bootswatchTheme.css"
+    },
+    {
       "Id": "/Users/pro/code/CSharp/BulkyBookVSC/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
