@@ -28,6 +28,10 @@ public class CategoryController : Controller
   [ValidateAntiForgeryToken]
   public IActionResult Create(Category obj)
   {
+    if(obj.Name == obj.DisplayOrder.ToString())
+    {
+      ModelState.AddModelError("name", "The Display Order cannot be the same as the Name.");
+    }
     if (ModelState.IsValid)
     {
       _db.Categories.Add(obj);
