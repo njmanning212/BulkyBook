@@ -40,6 +40,14 @@
                     <td style="width:30%">
                         @obj.DisplayOrder
                     </td>
+                    <td class="d-flex justify-content-center">
+                        <div type="button" class="btn btn-primary d-flex justify-content-center w-75">
+                            <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" style="color: white;">
+                                <i class="bi bi-pencil-square"></i>
+                                Edit
+                            </a>
+                        </div>
+                    </td>
                 </tr>
             }
         </tbody>
