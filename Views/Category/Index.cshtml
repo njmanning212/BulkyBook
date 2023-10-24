@@ -40,11 +40,17 @@
                     <td style="width:30%">
                         @obj.DisplayOrder
                     </td>
-                    <td class="d-flex justify-content-center">
-                        <div type="button" class="btn btn-primary d-flex justify-content-center w-75">
+                    <td class="d-flex justify-content-center space-between">
+                        <div type="button" class="btn btn-primary d-flex justify-content-center w-50 mx-2">
                             <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" style="color: white;">
                                 <i class="bi bi-pencil-square"></i>
                                 Edit
+                            </a>
+                        </div>
+                        <div type="button" class="btn btn-danger d-flex justify-content-center w-50 mx-2">
+                            <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id" style="color: white;">
+                                <i class="bi bi-pencil-square"></i>
+                                Delete
                             </a>
                         </div>
                     </td>

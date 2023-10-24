@@ -28,7 +28,7 @@ public class CategoryController : Controller
   [ValidateAntiForgeryToken]
   public IActionResult Create(Category obj)
   {
-    if(obj.Name == obj.DisplayOrder.ToString())
+    if (obj.Name == obj.DisplayOrder.ToString())
     {
       ModelState.AddModelError("name", "The Display Order cannot be the same as the Name.");
     }
@@ -62,7 +62,7 @@ public class CategoryController : Controller
   [ValidateAntiForgeryToken]
   public IActionResult Edit(Category obj)
   {
-    if(obj.Name == obj.DisplayOrder.ToString())
+    if (obj.Name == obj.DisplayOrder.ToString())
     {
       ModelState.AddModelError("name", "The Display Order cannot be the same as the Name.");
     }
@@ -73,5 +73,39 @@ public class CategoryController : Controller
       return RedirectToAction("Index");
     }
     return View(obj);
+  }
+
+  public IActionResult Delete(int? id)
+  {
+    if (id == null || id == 0)
+    {
+      return NotFound();
+    }
+
+    var categoryFromDb = _db.Categories.Find(id);
+
+    if (categoryFromDb == null)
+    {
+      return NotFound();
+    }
+
+    return View(categoryFromDb);
+  }
+
+  [HttpPost]
+  [ValidateAntiForgeryToken]
+  public IActionResult DeletePost(int? id)
+  {
+    var obj = _db.Categories.Find(id);
+
+    if (obj == null)
+    {
+      return NotFound();
+    }
+
+    _db.Categories.Remove(obj);
+    _db.SaveChanges();
+    return RedirectToAction("Index");
+
   }
 }
